@@ -1,5 +1,6 @@
 package com.example.preservecounteronconfigurationchange.viewModel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,7 +16,13 @@ class CounterViewModel: ViewModel() {
         _counter.value = 0
     }
 
-    fun updateCounter() {
+    fun incrementCounter() {
         _counter.value = (_counter.value ?: 0) + 1
+    }
+
+    fun decrementCounter() {
+       val currentCount: Int = _counter.value ?: 0
+        if(currentCount > 0)
+            _counter.value = currentCount - 1
     }
 }

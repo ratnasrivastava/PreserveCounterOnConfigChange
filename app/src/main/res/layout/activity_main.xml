@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    >
 
     <TextView
         android:id="@+id/count"
@@ -11,13 +12,21 @@
         android:textAlignment="center"
         android:padding="20dp"
         android:text="0"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        />
 
     <Button
-        android:id="@+id/counterButton"
+        android:id="@+id/counterIncrementerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:text="Increase counter"/>
+        android:text="+"/>
+
+    <Button
+        android:id="@+id/counterDecrementerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="-"/>
 
 </LinearLayout>

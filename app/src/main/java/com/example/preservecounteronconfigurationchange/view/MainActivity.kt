@@ -13,15 +13,20 @@ import com.example.preservecounteronconfigurationchange.viewModel.CounterViewMod
 class MainActivity : ComponentActivity() {
     private lateinit var counterText: TextView
     private lateinit var counterIncrementerButton: Button
+    private lateinit var counterDecrementButton: Button
     private val viewModel: CounterViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         counterText = findViewById(R.id.count)
-        counterIncrementerButton = findViewById(R.id.counterButton)
+        counterIncrementerButton = findViewById(R.id.counterIncrementerButton)
+        counterDecrementButton = findViewById(R.id.counterDecrementerButton)
         counterIncrementerButton.setOnClickListener(View.OnClickListener {
-            viewModel.updateCounter()
+            viewModel.incrementCounter()
+        })
+        counterDecrementButton.setOnClickListener(View.OnClickListener {
+            viewModel.decrementCounter()
         })
         viewModel.counter.observe(this, Observer{counter ->
             counterText.text = counter.toString()})
